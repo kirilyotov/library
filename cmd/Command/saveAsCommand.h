@@ -1,0 +1,10 @@
+#ifndef LIBRARY_SAVEASCOMMAND_H
+#define LIBRARY_SAVEASCOMMAND_H
+
+
+class saveAsCommand {
+
+};
+
+
+#endif //LIBRARY_SAVEASCOMMAND_H

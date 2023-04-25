@@ -1,6 +1,7 @@
 #ifndef LIBRARY_CMD_H
 #define LIBRARY_CMD_H
 #include "Utils.h"
+#include "Invoker.h"
 
 class CMD {
 public:
@@ -12,6 +13,7 @@ public:
 private:
     CMD() = default;
     static CMD* cmd;
+    Invoker* invoker = new Invoker;
 };
 
 

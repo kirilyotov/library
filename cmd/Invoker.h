@@ -17,6 +17,9 @@ public:
 
     void getCommand(const std::string &line);
 
+    bool exitProgram();
+
+
 private:
     Command *command;
 

@@ -2,8 +2,9 @@
 #define LIBRARY_EXITCOMMAND_H
 
 
-class exitCommand {
-
+class ExitCommand : public Command{
+public:
+    void execute() const override;
 };
 
 

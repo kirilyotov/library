@@ -3,22 +3,34 @@
 
 #include <iostream>
 #include <string>
+#include "Utils.h"
 #include "Command/command.h"
+#include "Command/closeCommand.h"
+#include "Command/saveCommand.h"
+#include "Command/saveAsCommand.h"
+#include "Command/helpCommand.h"
+#include "Command/exitCommand.h"
 
 class Invoker {
 public:
     ~Invoker();
 
-    void getCommand(std::string line);
+    void getCommand(const std::string &line);
 
 private:
-    Command* command;
+    Command *command;
 
-    bool isClose(std::string line);
-    bool isSave(std::string line);
-    bool isSaveAs(std::string line);
-    bool isHelp(std::string line);
-    bool isExit(std::string line);
+    static bool isClose(const std::string &line);
+
+    static bool isSave(const std::string &line);
+
+    static bool isSaveAs(const std::string &line);
+
+    static bool isHelp(const std::string &line);
+
+    static bool isExit(const std::string &line);
+
+    static std::string toLowerCase(const std::string& line);
 };
 
 

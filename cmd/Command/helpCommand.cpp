@@ -1,5 +1,9 @@
-//
-// Created by KirilYotov on 23.4.2023 г..
-//
-
 #include "helpCommand.h"
+
+void HelpCommand::execute() const {
+    printSupportedCommandsList();
+}
+
+void HelpCommand::printSupportedCommandsList() const {
+    std::cout << Utils::SUPPORTED_COMMAND_LIST;
+}

@@ -14,6 +14,8 @@
 
 class Book {
 public:
+
+    Book() = default;
     /**
      * All fields constructor
      * @param author Author of Book
@@ -80,6 +82,7 @@ public:
      */
     ~Book() = default;
 
+    friend std::ostream& operator << (std::ostream& out, const Book& book);
 private:
 
     /**
@@ -161,7 +164,7 @@ private:
      * @param book book to write in stream
      * @return out
      */
-    friend std::ostream& operator << (std::ostream& out, const Book& book);
+
 };
 
 

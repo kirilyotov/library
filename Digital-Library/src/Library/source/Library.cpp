@@ -1,46 +1,32 @@
 #include "../Library.h"
 
-Library::Library(const Book &book) {
 
-}
 
-Book& Library::operator[](int index) {
-    if(index < 0 || index > getLength()){
-        throw new std::invalid_argument("Not correct index!");
+const Book& Library::getBook(std::string ISBN) const{
+    for (std::set<Book>::iterator it = bookLibrary.begin(); it != bookLibrary.end(); ++it) {
+        if (it->getISBN() == ISBN) {
+            return *it;
+        }
     }
-  //  return bookLibrary[index];
-}
-
-const Book& Library::operator[](int index) const{
-    if(index < 0 || index > getLength()){
-        throw new std::invalid_argument("Not correct index!");
-    }
-   // return bookLibrary[index];
-}
-
-Book &Library::getBook(int index) {
-    if(index < 0 || index > getLength()){
-        throw std::invalid_argument("Not correct index.");
-    }
-   // return bookLibrary[index];
+    throw std::runtime_error(Utils::bookNotFound(ISBN));
 }
 
 bool Library::addBook(const Book &book) {
-    if(bookLibrary.find(book) == bookLibrary.end()){
-       bookLibrary.insert(book);
+    if (bookLibrary.find(book) == bookLibrary.end()) {
+        bookLibrary.insert(book);
         return true;
     }
-    return false ;
+    return false;
 }
 
 bool Library::removeBook(std::string ISBN) {
-    for(std::set<Book>::const_iterator it = bookLibrary.begin(); it != bookLibrary.end(); ++it){
-        if(it->getISBN() == ISBN){
+    for (std::set<Book>::const_iterator it = bookLibrary.begin(); it != bookLibrary.end(); ++it) {
+        if (it->getISBN() == ISBN) {
             bookLibrary.erase(it);
             return true;
         }
     }
-   return false;
+    return false;
 }
 
 int Library::getLength() const {
@@ -48,5 +34,37 @@ int Library::getLength() const {
 }
 
 void Library::print() const {
- 
+
+}
+
+bool Library::bookExists(const Book &book) {
+    auto it =  bookLibrary.find(book);
+    if(it != bookLibrary.end()){
+        return true;
+    }
+
+    return false;
+}
+
+std::istream &operator>>(std::istream &in, Library &library) {
+        std::string author;
+        std::string title;
+        std::string genre;
+        std::string shortDescription;
+        int year;
+        int rating;
+        std::string ISBN;
+
+        in >> author >> title >> genre >> shortDescription >> year >> rating >> ISBN;
+        library.addBook(Book(author, title, genre, shortDescription, year, rating, ISBN));
+
+    return in;
+}
+
+std::ostream &operator<<(std::ostream &out, const Library &library) {
+
+    for(const Book& book : library.bookLibrary){
+        out << book;
+    }
+    return out;
 }

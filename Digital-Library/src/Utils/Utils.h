@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+
 /**
  * Class which stores all console UI strings
  */
@@ -38,12 +39,42 @@ public:
      */
     static const std::string SUPPORTED_COMMAND_LIST;
 
+    static const std::string NOT_CORRECT_ISBN;
+
+    static const std::string LOGIN;
+
+    static const std::string OPEN;
+
+    static const std::string LOGOUT;
+
+    static const std::string BOOK;
+
+    static const std::string ALL;
+
+    static const std::string SORT;
+
+    static const std::string INFO;
+
+    static const std::string FIND;
+
+    static const std::string USER;
+
+    static const std::string ADD;
+
+    static const std::string REMOVE;
     /**
      * Error message gor not existing command
      * @param command Command which does not exits
      * @return Constructed message
      */
     static std::string commandDoesNotExists(std::string command);
+
+    /**
+     * Error Book not found
+     * @param ISBN Not found ISBN
+     * @return Constructed message
+     */
+    static std::string bookNotFound(std::string ISBN);
 };
 
 

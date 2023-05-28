@@ -1,10 +1,12 @@
 #ifndef LIBRARY_SAVEASCOMMAND_H
 #define LIBRARY_SAVEASCOMMAND_H
 
-
+#include <iostream>
+#include <vector>
+#include "command.h"
 class SaveAsCommand : public Command {
 public:
-    void execute() const override;
+    void execute(std::vector<std::string> &line,const Library& library) const override;
 };
 
 

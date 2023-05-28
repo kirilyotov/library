@@ -3,11 +3,13 @@
 
 #include <iostream>
 #include <string>
-#include "../Utils.h"
+#include <vector>
+#include "command.h"
+#include "../Utils/Utils.h"
 
 class HelpCommand : public Command {
 public:
-    void execute() const override;
+    void execute(std::vector<std::string> &line,const Library& library) const override;
 
 private:
     void printSupportedCommandsList() const;

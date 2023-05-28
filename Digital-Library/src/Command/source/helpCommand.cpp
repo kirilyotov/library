@@ -1,6 +1,6 @@
-#include "helpCommand.h"
+#include "../helpCommand.h"
 
-void HelpCommand::execute() const {
+void HelpCommand::execute(std::vector<std::string> &line,const Library& library) const {
     printSupportedCommandsList();
 }
 

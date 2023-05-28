@@ -1,5 +1,5 @@
-#include "closeCommand.h"
+#include "../closeCommand.h"
 
-void CloseCommand::execute() const {
-    //closeDocument = true;
+void CloseCommand::execute(std::vector<std::string> &line,const Library& library) const {
+
 }

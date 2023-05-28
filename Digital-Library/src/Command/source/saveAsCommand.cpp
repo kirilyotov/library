@@ -1,5 +1,5 @@
-//
-// Created by KirilYotov on 23.4.2023 г..
-//
+#include "../saveAsCommand.h"
 
-#include "saveAsCommand.h"
+void SaveAsCommand::execute(std::vector<std::string> &line,const Library& library) const {
+
+}

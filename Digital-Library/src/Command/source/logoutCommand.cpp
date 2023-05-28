@@ -3,3 +3,7 @@
 //
 
 #include "../logoutCommand.h"
+
+void logoutCommand::execute(std::vector<std::string> &line,const Library& library) const {
+
+}

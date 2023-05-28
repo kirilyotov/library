@@ -1,9 +1,12 @@
 #ifndef LIBRARY_USETSREMOVECOMMAND_H
 #define LIBRARY_USETSREMOVECOMMAND_H
+#include <iostream>
+#include <vector>
+#include "command.h"
 
-
-class UsersRemoveCommand {
-
+class UsersRemoveCommand: public Command {
+public:
+    void execute(std::vector<std::string> &line,const Library& library) const override;
 };
 
 

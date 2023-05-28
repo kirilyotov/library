@@ -1,9 +1,12 @@
 #ifndef LIBRARY_BOOKSFINDCOMMAND_H
 #define LIBRARY_BOOKSFINDCOMMAND_H
 
-
-class BooksFindCommand {
-
+#include <iostream>
+#include <vector>
+#include "command.h"
+class BooksFindCommand : public Command {
+public:
+    void execute(std::vector<std::string> &line,const Library& library) const override;
 };
 
 

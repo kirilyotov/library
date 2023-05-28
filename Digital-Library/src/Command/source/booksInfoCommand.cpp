@@ -1,5 +1,6 @@
-//
-// Created by KirilYotov on 29.4.2023 г..
-//
-
 #include "../booksInfoCommand.h"
+
+void booksInfoCommand::execute(std::vector<std::string> &subStrings,const Library& library) const {
+    Book book = library.getBook(subStrings[3]);
+    std::cout << book;
+}

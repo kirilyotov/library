@@ -1,9 +1,12 @@
 #ifndef LIBRARY_LOGINCOMMAND_H
 #define LIBRARY_LOGINCOMMAND_H
+#include <iostream>
+#include <vector>
+#include "command.h"
 
-
-class loginCommand {
-
+class loginCommand : public Command{
+public:
+    void execute(std::vector<std::string> &line,const Library& library) const override;
 };
 
 

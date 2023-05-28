@@ -15,7 +15,7 @@ void CMD::run() {
         std::cout << ">";
         getSubstrings();
         try {
-            invoker->getCommand(line);
+            invoker->getCommand(subStrings);
         } catch (std::runtime_error &error) {
             std::cerr << "Error: " << error.what() << std::endl;
         }

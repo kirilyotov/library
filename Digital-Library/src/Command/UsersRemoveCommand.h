@@ -1,0 +1,10 @@
+#ifndef LIBRARY_USETSREMOVECOMMAND_H
+#define LIBRARY_USETSREMOVECOMMAND_H
+
+
+class UsersRemoveCommand {
+
+};
+
+
+#endif //LIBRARY_USERSREMOVECOMMAND_H

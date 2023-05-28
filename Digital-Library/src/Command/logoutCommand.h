@@ -1,0 +1,10 @@
+#ifndef LIBRARY_LOGOUTCOMMAND_H
+#define LIBRARY_LOGOUTCOMMAND_H
+
+
+class logoutCommand {
+
+};
+
+
+#endif //LIBRARY_LOGOUTCOMMAND_H

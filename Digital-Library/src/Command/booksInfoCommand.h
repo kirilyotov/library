@@ -1,0 +1,10 @@
+#ifndef LIBRARY_BOOKSINFOCOMMAND_H
+#define LIBRARY_BOOKSINFOCOMMAND_H
+
+
+class booksInfoCommand {
+
+};
+
+
+#endif //LIBRARY_BOOKSINFOCOMMAND_H

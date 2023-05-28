@@ -1,0 +1,10 @@
+#ifndef LIBRARY_BOOKSALLCOMMAND_H
+#define LIBRARY_BOOKSALLCOMMAND_H
+
+
+class booksAllCommand {
+
+};
+
+
+#endif //LIBRARY_BOOKSALLCOMMAND_H

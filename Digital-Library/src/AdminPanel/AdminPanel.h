@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 #include <set>
-#include "User.h"
+#include "Account.h"
 
 class AdminPanel {
 public:
@@ -18,7 +18,7 @@ public:
      * @param user
      * @return
      */
-    bool addUser(const User &user);
+    bool addUser(const Account &user);
 
     /**
      *
@@ -27,11 +27,19 @@ public:
      */
     bool removeUser(std::string userName);
 
+    /**
+     *
+     * @param out
+     * @param adminPanel
+     * @return
+     */
+    friend std::ostream& operator << (std::ostream& out, const AdminPanel& adminPanel);
+
 private:
     /**
      *
      */
-    std::set<User> bookLibrary;
+    std::set<Account> bookLibrary;
 };
 
 

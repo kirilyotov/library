@@ -41,7 +41,7 @@ const std::string Book::getISBN() const {
 }
 
 void Book::setYear(int year) {
-    if(year > getCurrentYear() || year < MIN_YEAR){
+    if (year > getCurrentYear() || year < MIN_YEAR) {
         throw std::invalid_argument("Not correct year");
     }
     this->year = year;
@@ -49,21 +49,21 @@ void Book::setYear(int year) {
 }
 
 void Book::setRating(int rating) {
-    if(rating < MIN_RATING || rating > MAX_RATING){
+    if (rating < MIN_RATING || rating > MAX_RATING) {
         throw std::invalid_argument("Not correct rating");
     }
     this->rating = rating;
 }
 
 void Book::setISBN(std::string ISBN) {
-    if(!isCorrectISBN(ISBN)){
-        throw std::invalid_argument("Not correct ISBN");
+    if (!isCorrectISBN(ISBN)) {
+        throw std::invalid_argument(Utils::NOT_CORRECT_ISBN);
     }
 }
 
 int Book::getCurrentYear() {
     std::time_t time = std::time(nullptr);
-    std::tm* localTime = std::localtime(& time);
+    std::tm *localTime = std::localtime(&time);
     return localTime->tm_year + BASE_YEAR;
 }
 
@@ -73,11 +73,11 @@ bool Book::operator<(const Book &other) const {
 
 
 bool Book::isCorrectISBN(std::string ISBN) {
-    if(ISBN.length() != ISBN_LEN){
+    if (ISBN.length() != ISBN_LEN) {
         return false;
     }
-    for(int i = 0; i < ISBN.length(); ++i){
-        if(!isNumber(ISBN[i])){
+    for (int i = 0; i < ISBN.length(); ++i) {
+        if (!isNumber(ISBN[i])) {
             return false;
         }
     }
@@ -86,5 +86,12 @@ bool Book::isCorrectISBN(std::string ISBN) {
 
 bool Book::isNumber(char ch) const {
     return ch >= '0' && ch <= '9';
+}
+
+std::ostream &operator<<(std::ostream &out, const Book &book) {
+    out << book.getAuthor() << " " << book.getTitle() << " "
+        << book.getGenre() << " " << book.getShortDescription() << " "
+        << book.getYear() << book.getRating() << " " << book.getISBN() << "\n";
+    return out;
 }
 

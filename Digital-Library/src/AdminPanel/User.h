@@ -1,5 +1,6 @@
 #ifndef LIBRARY_USER_H
 #define LIBRARY_USER_H
+
 #include <iostream>
 #include <string>
 #include "GroupType.h"
@@ -13,17 +14,19 @@ public:
      * @param type
      */
     User(std::string username, std::string password, GroupType type);
+
     /**
      *
      * @param other
      * @return
      */
-    bool operator<(const User& other) const;
+    bool operator<(const User &other) const;
 
     /**
      *
      */
     ~User() = default;
+
 private:
     /**
      *

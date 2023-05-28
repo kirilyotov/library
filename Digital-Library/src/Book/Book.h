@@ -1,8 +1,10 @@
 #ifndef LIBRARY_BOOK_H
 #define LIBRARY_BOOK_H
+
 #include <iostream>
 #include <string>
 #include <ctime>
+#include "../Utils/Utils.h"
 
 #define MIN_YEAR 1500
 #define MIN_RATING 0
@@ -14,55 +16,55 @@ class Book {
 public:
     /**
      * All fields constructor
-     * @param author Author of book
-     * @param title Title of book
-     * @param genre Genre of book
-     * @param shortDescription Short description of book
-     * @param year Year when book was publised
-     * @param rating Rating of book from 1 to 10
-     * @param ISBN Identification string of book
+     * @param author Author of Book
+     * @param title Title of Book
+     * @param genre Genre of Book
+     * @param shortDescription Short description of Book
+     * @param year Year when Book was publised
+     * @param rating Rating of Book from 1 to 10
+     * @param ISBN Identification string of Book
      */
     Book(std::string author, std::string title, std::string genre, std::string shortDescription, int year, int rating,
          std::string ISBN);
 
     /**
-     * Get author of book
-     * @return book author
+     * Get author of Book
+     * @return Book author
      */
     const std::string getAuthor() const;
 
     /**
-     * Get title of book
-     * @return book title
+     * Get title of Book
+     * @return Book title
      */
     const std::string getTitle() const;
 
     /**
-     * Get genre of book
-     * @return book genre
+     * Get genre of Book
+     * @return Book genre
      */
     const std::string getGenre() const;
 
     /**
-     * Get description of book
-     * @return book description
+     * Get description of Book
+     * @return Book description
      */
     const std::string getShortDescription() const;
 
     /**
-     * Get year when book was published
+     * Get year when Book was published
      * @return publish year
      */
     const int getYear() const;
 
     /**
-     * Get rating of book form [1,10]
-     * @return book rating
+     * Get rating of Book form [1,10]
+     * @return Book rating
      */
     const int getRating() const;
 
     /**
-     * Get ISBN of book
+     * Get ISBN of Book
      * @return ISBN
      */
     const std::string getISBN() const;
@@ -71,12 +73,13 @@ public:
      * Compare books by ISBN
      * @return true if left Book has lower ISBN otherwise false
      */
-    bool operator<(const Book& other) const;
+    bool operator<(const Book &other) const;
 
     /**
      * Default destructor
      */
     ~Book() = default;
+
 private:
 
     /**
@@ -95,12 +98,12 @@ private:
     std::string genre;
 
     /**
-     *  Short description of book
+     *  Short description of Book
      */
     std::string shortDescription;
 
     /**
-     * Publish year of book
+     * Publish year of Book
      */
     int year;
 
@@ -110,7 +113,7 @@ private:
     int rating;
 
     /**
-     * ISBN of book - unique 13 digit string
+     * ISBN of Book - unique 13 digit string
      */
     std::string ISBN;
 
@@ -151,6 +154,14 @@ private:
      * @return Ture if symbol is number [0-9]
      */
     bool isNumber(char ch) const;
+
+    /**
+     * Overload out stream
+     * @param out stream
+     * @param book book to write in stream
+     * @return out
+     */
+    friend std::ostream& operator << (std::ostream& out, const Book& book);
 };
 
 

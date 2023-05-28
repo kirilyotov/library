@@ -2,7 +2,7 @@
 #define LIBRARY_SAVEASCOMMAND_H
 
 
-class SaveAsCommand : public Command{
+class SaveAsCommand : public Command {
 public:
     void execute() const override;
 };

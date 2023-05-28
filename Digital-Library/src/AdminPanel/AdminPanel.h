@@ -1,5 +1,6 @@
 #ifndef LIBRARY_ADMINPANEL_H
 #define LIBRARY_ADMINPANEL_H
+
 #include <iostream>
 #include <string>
 #include <set>
@@ -11,12 +12,13 @@ public:
      *
      */
     AdminPanel();
+
     /**
      *
      * @param user
      * @return
      */
-    bool addUser(const User & user);
+    bool addUser(const User &user);
 
     /**
      *

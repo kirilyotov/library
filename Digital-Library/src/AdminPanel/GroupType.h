@@ -1,7 +1,7 @@
 #ifndef LIBRARY_GROUPTYPE_H
 #define LIBRARY_GROUPTYPE_H
 
-enum class GroupType{
+enum class GroupType {
     USER,
     ADMIN
 };

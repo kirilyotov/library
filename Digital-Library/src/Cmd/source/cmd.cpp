@@ -1,4 +1,4 @@
-#include "cmd.h"
+#include "../cmd.h"
 
 CMD *CMD::cmd = nullptr;
 
@@ -12,12 +12,27 @@ CMD *CMD::getInstance() {
 void CMD::run() {
     std::string line;
     while (!invoker->exitProgram()) {
-        std::getline(std::cin, line);
+        std::cout << ">";
+        getSubstrings();
         try {
             invoker->getCommand(line);
         } catch (std::runtime_error &error) {
             std::cerr << "Error: " << error.what() << std::endl;
         }
 
+    }
+}
+
+void CMD::getSubstrings() {
+    std::string input;
+    std::istringstream iss(input);
+    if(subStrings.size()!= 0){
+        subStrings.clear();
+    }
+
+
+    std::string substring;
+    while (std::getline(iss, substring, ' ')) {
+        subStrings.push_back(substring);
     }
 }

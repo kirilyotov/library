@@ -1,8 +1,11 @@
 #ifndef LIBRARY_CMD_H
 #define LIBRARY_CMD_H
+
 #include "../Utils/Utils.h"
 #include "../Invoker/Invoker.h"
-
+#include <iostream>
+#include <vector>
+#include <sstream>
 /**
  * Singleton class
  */
@@ -11,19 +14,19 @@ public:
     /**
      *
      */
-    CMD(const CMD& ) = delete;
+    CMD(const CMD &) = delete;
 
     /**
      *
      * @return
      */
-    CMD& operator= (const CMD& ) = delete;
+    CMD &operator=(const CMD &) = delete;
 
     /**
      *
      * @return
      */
-    static  CMD* getInstance();
+    static CMD *getInstance();
 
     /**
      *
@@ -39,12 +42,16 @@ private:
     /**
      * Single static instantiation of class
      */
-    static CMD* cmd;
+    static CMD *cmd;
 
     /**
      * Invoke command
      */
-    Invoker* invoker = new Invoker;
+    Invoker *invoker = new Invoker;
+
+    std::vector<std::string> subStrings;
+
+    void getSubstrings();
 };
 
 

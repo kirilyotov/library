@@ -1,6 +1,6 @@
 #include "../loginCommand.h"
 
-void loginCommand::execute(std::vector<std::string> &line,const Library& library) const {
+void loginCommand::execute(std::vector<std::string> &line, Library& library) const {
     std::string password;
     std::string username;
     std::cout << "Enter username:";

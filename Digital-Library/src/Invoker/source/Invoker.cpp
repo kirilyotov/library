@@ -39,7 +39,7 @@ void Invoker::getCommand(std::vector<std::string> &subStrings) {
         throw std::runtime_error(Utils::commandDoesNotExists(subStrings[0]));
     }
 
-    command->execute(subStrings);
+    command->execute(subStrings,library );
 }
 
 bool Invoker::isClose(const std::string &line) {

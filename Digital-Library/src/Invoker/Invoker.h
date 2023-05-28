@@ -40,14 +40,14 @@ private:
     /**
      * Library with books
      */
-    Library library;
+    Library library = Library();
 
     Account* currentAccount;
 
     /**
      * Library with accounts
      */
-    AdminPanel adminPanel;
+    AdminPanel adminPanel= AdminPanel();
 
     /**
      * Store command

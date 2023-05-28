@@ -14,3 +14,8 @@ bool Account::operator<(const Account &other) const {
 bool Account::isAdmin() {
     return type == GroupType::ADMIN;
 }
+
+std::ostream &operator<<(std::ostream &out, const Account &account) {
+    out << account.userName << " " << account.password << "\n";
+    return out;
+}

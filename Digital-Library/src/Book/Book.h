@@ -14,7 +14,6 @@
 
 class Book {
 public:
-
     Book() = default;
     /**
      * All fields constructor
@@ -82,7 +81,8 @@ public:
      */
     ~Book() = default;
 
-    friend std::ostream& operator << (std::ostream& out, const Book& book);
+    friend std::ostream& operator<<(std::ostream& out, const Book& book);
+
 private:
 
     /**
@@ -166,6 +166,5 @@ private:
      */
 
 };
-
 
 #endif //LIBRARY_BOOK_H

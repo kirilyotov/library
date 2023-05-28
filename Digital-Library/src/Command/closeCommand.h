@@ -7,7 +7,7 @@
 class CloseCommand : public Command {
 
 public:
-    void execute(std::vector<std::string> &line,const Library& library) const override;
+    void execute(std::vector<std::string> &line, Library& library) const override;
 
 private:
     bool closeDocument = false;

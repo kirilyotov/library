@@ -1,11 +1,9 @@
+
 #include "../Book.h"
 
 Book::Book(std::string author, std::string title, std::string genre, std::string shortDescription, int year, int rating,
-           std::string ISBN) {
-    this->author = author;
-    this->title = title;
-    this->genre = genre;
-    this->shortDescription = shortDescription;
+           std::string ISBN) : author(std::move(author)), title(std::move(title)), genre(std::move(genre)),
+                               shortDescription(std::move(shortDescription)) {
     setYear(year);
     setRating(rating);
     setISBN(ISBN);
@@ -14,7 +12,6 @@ Book::Book(std::string author, std::string title, std::string genre, std::string
 const std::string Book::getAuthor() const {
     return author;
 }
-
 
 const std::string Book::getTitle() const {
     return title;
@@ -38,6 +35,17 @@ const int Book::getRating() const {
 
 const std::string Book::getISBN() const {
     return ISBN;
+}
+
+bool Book::operator<(const Book &other) const {
+    return ISBN < other.ISBN;
+}
+
+std::ostream &operator<<(std::ostream &out, const Book &book) {
+    out << book.getAuthor() << " " << book.getTitle() << " "
+        << book.getGenre() << " " << book.getShortDescription() << " "
+        << book.getYear() << book.getRating() << " " << book.getISBN() << "\n";
+    return out;
 }
 
 void Book::setYear(int year) {
@@ -67,11 +75,6 @@ int Book::getCurrentYear() {
     return localTime->tm_year + BASE_YEAR;
 }
 
-bool Book::operator<(const Book &other) const {
-    return ISBN < other.ISBN;
-}
-
-
 bool Book::isCorrectISBN(std::string ISBN) {
     if (ISBN.length() != ISBN_LEN) {
         return false;
@@ -88,10 +91,4 @@ bool Book::isNumber(char ch) const {
     return ch >= '0' && ch <= '9';
 }
 
-std::ostream &operator<<(std::ostream &out, const Book &book) {
-    out << book.getAuthor() << " " << book.getTitle() << " "
-        << book.getGenre() << " " << book.getShortDescription() << " "
-        << book.getYear() << book.getRating() << " " << book.getISBN() << "\n";
-    return out;
-}
 

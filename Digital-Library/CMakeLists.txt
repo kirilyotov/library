@@ -14,7 +14,15 @@ file(GLOB UTILS "src/Utils/*/*")
 
 file(GLOB TESTS "test/*/*")
 #Execute library
-add_executable(library src/main.cpp ${UTILS} ${BOOK} ${CMD}  ${INVOKER}  ${COMMAND} src/AdminPanel/Account.h src/IOStream/IOStream.h src/IOStream/IOStream.cpp)
+add_executable(library src/main.cpp
+        ${ADMIN_PANEL}
+        ${BOOK}
+        ${CMD}
+        ${COMMAND}
+        ${INVOKER}
+        ${IO_STREAM}
+        ${LIBRARY}
+        ${UTILS})
 
 #Run tests
 #add_executable(library test/catch.hpp test/src/test.cpp ${BOOK} ${UTILS})

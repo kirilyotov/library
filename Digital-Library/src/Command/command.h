@@ -7,7 +7,7 @@ class Command {
 public:
     virtual ~Command() = default;
 
-    virtual void execute(std::vector<std::string> &line, const Library &library ) const = 0;
+    virtual void execute(std::vector<std::string> &line, Library &library ) const = 0;
 };
 
 

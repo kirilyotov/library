@@ -11,7 +11,7 @@ public:
     /**
      *
      */
-    AdminPanel();
+    AdminPanel() = default;
 
     /**
      *
@@ -39,7 +39,7 @@ private:
     /**
      *
      */
-    std::set<Account> bookLibrary;
+    std::set<Account> panel;
 };
 
 

@@ -1,8 +1,7 @@
 #include "../Library.h"
 
 
-
-const Book& Library::getBook(std::string ISBN) const{
+const Book &Library::getBook(std::string ISBN) const {
     for (std::set<Book>::iterator it = bookLibrary.begin(); it != bookLibrary.end(); ++it) {
         if (it->getISBN() == ISBN) {
             return *it;
@@ -38,8 +37,8 @@ void Library::print() const {
 }
 
 bool Library::bookExists(const Book &book) {
-    auto it =  bookLibrary.find(book);
-    if(it != bookLibrary.end()){
+    auto it = bookLibrary.find(book);
+    if (it != bookLibrary.end()) {
         return true;
     }
 
@@ -47,24 +46,37 @@ bool Library::bookExists(const Book &book) {
 }
 
 std::istream &operator>>(std::istream &in, Library &library) {
-        std::string author;
-        std::string title;
-        std::string genre;
-        std::string shortDescription;
-        int year;
-        int rating;
-        std::string ISBN;
+    std::string author;
+    std::string title;
+    std::string genre;
+    std::string shortDescription;
+    int year;
+    int rating;
+    std::string ISBN;
 
-        in >> author >> title >> genre >> shortDescription >> year >> rating >> ISBN;
-        library.addBook(Book(author, title, genre, shortDescription, year, rating, ISBN));
+    in >> author >> title >> genre >> shortDescription >> year >> rating >> ISBN;
+    library.addBook(Book(author, title, genre, shortDescription, year, rating, ISBN));
 
     return in;
 }
 
 std::ostream &operator<<(std::ostream &out, const Library &library) {
 
-    for(const Book& book : library.bookLibrary){
+    for (const Book &book: library.bookLibrary) {
         out << book;
     }
     return out;
+}
+
+void Library::sort(std::function<bool(const Book&, const Book&)> cmp, bool isAscending) {
+    std::vector<Book> lib(bookLibrary.begin(), bookLibrary.end());
+    std::sort(lib.begin(), lib.end(), cmp);
+
+    if (!isAscending)
+        std::reverse(lib.begin(), lib.end());
+
+    for (const Book& book : lib)
+    {
+       std::cout << book;
+    }
 }

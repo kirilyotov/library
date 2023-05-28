@@ -4,8 +4,8 @@
 #include <iostream>
 #include <fstream>
 #include <set>
+#include <algorithm>
 #include "../Book/Book.h"
-
 
 class Library {
 public:
@@ -40,6 +40,8 @@ public:
      * @return True if Book is successfully deleted
      */
     bool removeBook(std::string ISBN);
+
+    void sort(std::function<bool(const Book&, const Book&)>, bool isAscending);
 
     /**
      * Get number of Book in library

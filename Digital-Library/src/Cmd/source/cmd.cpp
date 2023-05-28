@@ -10,7 +10,6 @@ CMD *CMD::getInstance() {
 }
 
 void CMD::run() {
-    std::string line;
     while (!invoker->exitProgram()) {
         std::cout << ">";
         getSubstrings();
@@ -25,6 +24,7 @@ void CMD::run() {
 
 void CMD::getSubstrings() {
     std::string input;
+    std::getline(std::cin, input);
     std::istringstream iss(input);
     if(subStrings.size()!= 0){
         subStrings.clear();
